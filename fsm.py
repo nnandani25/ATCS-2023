@@ -86,10 +86,3 @@ class FSM:
             action[0]()
 
         pass
-
-    # def trigger(self, event):
-    #     if self.current_state in self.transitions and event in self.transitions[self.current_state]:
-    #         action, to_state = self.transitions[self.current_state][event]
-    #         if action:
-    #             action()
-    #         self.set_state(to_state)

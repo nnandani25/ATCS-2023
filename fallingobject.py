@@ -1,15 +1,10 @@
+# Made by Chat GPT
 import pygame
 import sys
 import random
 import gameconstants as gc
-from glass import Glass
-from blood import Blood
-from water import Water
 
 class FallingObject(pygame.sprite.Sprite):
-
-    active_objects = pygame.sprite.Group()
-
 
     def __init__(self, image_path, speed):
         super().__init__()
@@ -20,15 +15,12 @@ class FallingObject(pygame.sprite.Sprite):
         self.speed = speed
 
     def update(self):
+        # Changes the location when it goes off the screen.
         self.rect.y += self.speed
         if self.rect.y > gc.HEIGHT:
             self.reset_position()
 
     def reset_position(self):
+        # Sets a random position.
         self.rect.y = random.randrange(-100, -50)
         self.rect.x = random.randrange(gc.WIDTH - self.rect.width)
-
-
-    # def load(self):
-    #     if something == "hit glass":
-    #         self.active_objects.add(Glass())
