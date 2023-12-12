@@ -89,6 +89,7 @@ class Game:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
+                    return
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:
                         space_pressed = True
@@ -148,11 +149,14 @@ class Game:
 
             pygame.display.flip()
             self.clock.tick(gc.FPS)
-            if self.checkwin(self.blood_count):
-                self.show_win_screen()
-                pygame.quit()
-                sys.exit()
 
+            if self.checkwin(self.blood_count) or not running:
+                running = False
+                
+        if self.checkwin(self.blood_count):
+            self.show_win_screen()
+                # pygame.quit()
+                # sys.exit()
         pygame.quit()
         sys.exit()
 

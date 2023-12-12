@@ -7,7 +7,7 @@ import gameconstants as gc
 class Glass(FallingObject):
 
     def __init__(self, player):
-        super().__init__('ATCS-2023/Images/glass.png', speed=3)
+        super().__init__('ATCS-2023/Images/glass.png', speed=4)
         self.player = player
 
 
